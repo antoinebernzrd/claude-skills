@@ -10,6 +10,7 @@ One folder per skill; each folder has a `SKILL.md` (plus any supporting files).
 | [writing-style](writing-style/SKILL.md) | Antoine's personal writing style and standards for any text written on his behalf (FR/EN) | Uploaded to claude.ai |
 | [contract-triage](contract-triage/SKILL.md) | Fast first-pass triage of an incoming contract for Alice & Bob's Legal team — GREEN/YELLOW/RED verdict | Uploaded to claude.ai |
 | [contract-deep-review](contract-deep-review/SKILL.md) | Clause-by-clause legal review with per-contract-type checklists, severity ratings, and redlines | Uploaded to claude.ai |
+| [update-rebuild-recipe](update-rebuild-recipe/SKILL.md) | Refresh the Mac rebuild recipe (app + Homebrew inventory) in the private memory-backup repo | Claude Code only (local) |
 
 [`positions.md`](positions.md) is the Alice & Bob negotiation playbook the contract
 skills were designed around — update it, not the skills, when positions change.
