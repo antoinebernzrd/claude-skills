@@ -8,10 +8,11 @@ One folder per skill; each folder has a `SKILL.md` (plus any supporting files).
 | Skill | What it does | Status |
 |-------|--------------|--------|
 | [writing-style](writing-style/SKILL.md) | Antoine's personal writing style and standards for any text written on his behalf (FR/EN) | Uploaded to claude.ai |
+| [contract-triage](contract-triage/SKILL.md) | Fast first-pass triage of an incoming contract for Alice & Bob's Legal team — GREEN/YELLOW/RED verdict | Uploaded to claude.ai |
+| [contract-deep-review](contract-deep-review/SKILL.md) | Clause-by-clause legal review with per-contract-type checklists, severity ratings, and redlines | Uploaded to claude.ai |
 
-## Related repos
-
-- **[alice-bob-legal-skills](https://github.com/antoinebernzrd/alice-bob-legal-skills)** — contract-review skills (triage + deep review). Kept as its own project-scoped repo.
+[`positions.md`](positions.md) is the Alice & Bob negotiation playbook the contract
+skills were designed around — update it, not the skills, when positions change.
 
 ## How this is organized
 
