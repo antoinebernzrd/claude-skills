@@ -7,7 +7,7 @@ One folder per skill; each folder has a `SKILL.md` (plus any supporting files).
 
 | Skill | What it does | Status |
 |-------|--------------|--------|
-| _(add your first skill here)_ | | |
+| [writing-style](writing-style/SKILL.md) | Antoine's personal writing style and standards for any text written on his behalf (FR/EN) | Uploaded to claude.ai |
 
 ## Related repos
 
