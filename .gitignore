@@ -3,3 +3,6 @@
 
 # OS
 .DS_Store
+
+# Skill eval workspaces (test artifacts)
+*-workspace/
