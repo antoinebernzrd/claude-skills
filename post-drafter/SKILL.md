@@ -70,11 +70,22 @@ information.
 
 ### 2. Research
 
-Run 3–6 targeted web searches. The goal is not coverage, it is 3–6 concrete,
-citable facts (a number, a named company, a dated event) that can carry the
-post's supporting points, each tied to a source URL you actually opened.
+Start with Antoine's own news dashboard, then fill the gaps with targeted web
+searches. The goal is not coverage, it is 3–6 concrete, citable facts (a
+number, a named company, a dated event) that can carry the post's supporting
+points, each tied to a source URL you actually opened.
 
-- Prioritize the last few weeks; a post about stale news reads badly.
+- **Morning Brief first**: fetch https://antoinebernzrd.github.io/morning-brief/
+  — the dashboard Antoine built to aggregate the outlets he follows, refreshed
+  every 2 hours (sections include Tech — Startups — VC, Macro — Finance —
+  Markets, Geopolitical Flashpoints, Pop Culture). It shows headline, outlet,
+  age, and article link. Take the items relevant to the topic and open the
+  underlying articles: a headline is a pointer, never a citable fact by
+  itself. In Claude Code, the locally generated copy at
+  ~/news_dashboard/index.html works too. No coverage there means nothing
+  about the topic — move on to search.
+- Then 2–5 targeted web searches for what the dashboard did not surface.
+  Prioritize the last few weeks; a post about stale news reads badly.
 - Antoine's preferred outlets, kept from his old pipeline — search the ones
   the topic calls for (site: queries work), never force all of them into one
   post: Les Echos and The NBS (French business and startups), Sifted
