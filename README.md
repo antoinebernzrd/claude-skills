@@ -12,7 +12,7 @@ One folder per skill; each folder has a `SKILL.md` (plus any supporting files).
 | [contract-deep-review](contract-deep-review/SKILL.md) | Clause-by-clause legal review with per-contract-type checklists, severity ratings, and redlines | Uploaded to claude.ai |
 | [update-rebuild-recipe](update-rebuild-recipe/SKILL.md) | Refresh the Mac rebuild recipe (app + Homebrew inventory) in the private memory-backup repo | Claude Code only (local) |
 | [restore-mac](restore-mac/SKILL.md) | Set up a fresh Mac from the rebuild recipe — apps, CLI tools, dotfiles, fonts, skills, memory | Claude Code only (local) |
-| [post-drafter](post-drafter/SKILL.md) | Research + draft LinkedIn/X/Reddit posts in Antoine's voice, or optimize a draft he wrote; saves to the Notion Posts DB (replaces the n8n Telegram bot) | Not yet uploaded |
+| [post-drafter](post-drafter/SKILL.md) | Research + draft LinkedIn/X/Reddit posts in Antoine's voice, or optimize a draft he wrote; saves to the Notion Posts DB (replaces the n8n Telegram bot) | Uploaded to claude.ai |
 
 [`positions.md`](positions.md) is the Alice & Bob negotiation playbook the contract
 skills were designed around — update it, not the skills, when positions change.
