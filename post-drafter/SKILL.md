@@ -5,9 +5,10 @@ description: >-
   or optimize a draft he has already written for those platforms. Produces three
   platform-ready drafts grounded in live web research, styled on his saved examples,
   and saved to his Notion Posts database. Use this whenever Antoine asks to draft,
-  write, or prepare a social post: "/post <topic>", "draft a post about…", "write a
-  LinkedIn post / X thread / Reddit post on…", "I want to post about…", "turn this
-  into a post/thread", "/optimize <text>", "optimize this draft", "rework this for
+  write, or prepare a social post: a message starting with "/post" plus a topic,
+  "draft a post about…", "write a LinkedIn post / X thread / Reddit post on…",
+  "I want to post about…", "turn this into a post/thread", a message starting
+  with "/optimize" plus his draft text, "optimize this draft", "rework this for
   LinkedIn". Trigger even when he gives only a bare topic after /post, and even if
   he names just one platform (still deliver all three unless he says otherwise).
   NOT for emails, memos, investment memos, or long-form articles — the
