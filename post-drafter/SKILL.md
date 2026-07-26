@@ -75,10 +75,12 @@ citable facts (a number, a named company, a dated event) that can carry the
 post's supporting points, each tied to a source URL you actually opened.
 
 - Prioritize the last few weeks; a post about stale news reads badly.
-- For European or French topics, check French/European sources (Les Echos,
-  Sifted) alongside international ones (The Economist, FT, Reuters). Antoine
-  also reads Not Boring, TBPN, and Silicon Carne — good for framing on
-  tech/VC topics.
+- Antoine's preferred outlets, kept from his old pipeline — search the ones
+  the topic calls for (site: queries work), never force all of them into one
+  post: Les Echos and The NBS (French business and startups), Sifted
+  (European tech), The Economist, FT, Reuters (international news), NYT
+  Opinion (argument framing), Not Boring, TBPN, Silicon Carne, Silicon Mania
+  (tech/VC newsletters), NSS Mag (culture and consumer trends).
 - Look for what people are currently arguing about on the topic (Reddit and X
   discussions surface this). The post should enter a live conversation, not
   restate consensus.
