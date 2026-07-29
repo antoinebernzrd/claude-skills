@@ -6,32 +6,84 @@ description: Capture a receipt or expense into Antoine's 🧾 Receipt Inbox Noti
 # /receipt-capture — Receipt Inbox
 
 One job: turn a receipt (photo or words) into one well-formed row in the
-**🧾 Receipt Inbox** Notion database, status **Pending**, in under 10 seconds of
-Antoine's attention. A monthly job on his Mac matches pending rows against the
-Crédit Mutuel bank export and writes his categories into the Financial
-Statement workbook — **his category stated here beats every auto-rule there**,
-so capture faithfully and compactly.
+**🧾 Receipt Inbox** Notion database, status **Pending**, with a 10-second
+interview. A monthly job on his Mac matches pending rows against the Crédit
+Mutuel bank export and writes his answers into the Financial Statement
+workbook — **what he answers here beats every auto-rule there**, so capture
+faithfully and compactly.
 
 The database: search Notion for the "Receipt Inbox" database under the
 *Finance Automation* page (data source `collection://b8614648-b2a7-4faa-83b6-8ae4310d499b`).
 
-## Extract
+## Step 1 — Extract
 
 From the photo (or message): **merchant** (title), **date** of purchase
-(default: today if absent; "hier" = yesterday), **total amount** (the final
-total, tip included), **currency**.
+(default: today; "hier" = yesterday), **total amount** (final total, tip
+included), **currency**.
 
 - `Amount` is **signed like the bank: negative for expenses**, positive only
   for money coming in (refunds, reimbursements).
 - Non-EUR receipt: `Original amount` = the foreign total, `Currency` = its
-  currency, `Amount` = your best EUR estimate (state "≈" in the reply). The
-  matcher tolerates ~5% FX drift.
-- Cash payment ("en liquide", "cash"): `Status` = **Cash** (it will never appear
-  in the bank export). Everything else: `Status` = **Pending**.
+  currency, `Amount` = your best EUR estimate (say "≈" in the reply).
+- Cash ("en liquide"): `Status` = **Cash** (it will never hit the bank export).
+  Everything else: `Status` = **Pending**.
 
-## Categorize
+## Step 2 — The interview (always, ONE compact message)
 
-Use exactly these Category → Subcategory pairs (select options in the DB):
+Never guess silently: after extracting, ask ONE short message covering only
+what his caption didn't already answer, then wait:
+
+> 🧾 Doctolib −60,00 € · 15/01
+> 1. Catégorie : **Health / Doctor appointment** — ok ?
+> 2. Actual ou **ghost** (avancé pour quelqu'un) ? Si ghost : pour qui —
+>    Parents / Debts / Others ?
+> 3. Un commentaire ?
+
+Rules of the interview:
+- His caption pre-answers: "resto, ghost parents, dîner avec papa" answers
+  everything → skip the questions, file directly, confirm in one line.
+- Propose your best category guess in question 1 — he confirms with "ok"/"oui"
+  or corrects.
+- Account is automatic (Compte_Courant_CM at reconciliation) — only ask if he
+  hints he paid with another card or account.
+- One receipt = one interview message max. Several receipts in one message →
+  one merged interview, numbered.
+
+## Ghost expenses (his exact convention)
+
+Ghost = "I paid, but someone else ultimately bears it (or owes me)".
+In the row: `Ghost` = true, `From` = **Me**, `To` = whoever bears it
+(**Parents** / Debts / Others). Keep the real expense category in
+Category/Subcategory (a doctor stays Health even when parents reimburse).
+The reverse flow (a reimbursement arriving) is a positive Amount with
+`From` = them, `To` = Me, category Secondaries/Reimbursement.
+
+## Step 3 — Parents-ghost → WhatsApp handoff
+
+When the answer is **ghost → To = Parents**, after filing the row:
+
+1. Compose a short French note, e.g.:
+   `Coucou, j'ai avancé 60,00 € chez Doctolib le 15/01 — reçu en photo. Antoine`
+   (adapt merchant/amount/date; one sentence, no flourish).
+2. Reply with a tap-to-send link so he can forward it with the photo from his
+   phone: `https://wa.me/<number>?text=<URL-encoded note>` — the number is on
+   the private **Finance Automation** page in Notion (parent of the Receipt
+   Inbox), line "Parents WhatsApp:". Fetch it from there; if absent, ask
+   Antoine once and add it to that page. Remind him: *"tape le lien, ajoute la
+   photo (dernière du rouleau), envoie"*. Sending in WhatsApp is his
+   confirmation — never claim the message was sent.
+3. Append "receipt forwarded to parents" to the row's `Comment`.
+
+## Step 4 — Write the row
+
+Create the page in the data source with: Merchant, `date:Date:start`
+(YYYY-MM-DD), Amount, Currency, Original amount (if FX), Category, Subcategory,
+Ghost (`__YES__`/`__NO__`), From, To, Comment, Status. Attach the photo if the
+surface supports it; skip silently if not. **Dedupe first**: same amount +
+same date already Pending → ask before creating a second row (double-sent
+photo vs. two real coffees).
+
+## Categories (exact select options)
 
 - **Groceries**: Bulk groceries · Small groceries · Little extras
 - **Outside_Consumption**: Intentional eating out · No choice eating out · Drinks · Dinner at friend's · Work/Uni consumption · Coffee
@@ -48,38 +100,12 @@ Use exactly these Category → Subcategory pairs (select options in the DB):
 - **Transfer**: Interbank transfer · Interbank transfer fees
 - Income — **Primaries**: Main Job · Allowance · CAF / **Secondaries**: Ad hoc Missions · Side Hustle · Funds Disbursement · Reimbursement · Gift · Reselling · Interbank transfer · Intrabank transfer
 
-Shorthand he'll use: "resto" → Outside_Consumption/Intentional eating out ·
-"courses" → Groceries/Small groceries · "verres"/"drinks" → Drinks · "taf"/
-"work lunch" → Work/Uni consumption · "essence"/"péage"/"train (trip)" →
-Transportations/Travel transportation · "métro" → Public transportation ·
-"pharma" → Health/Meds · "sport" → Activities/Sports.
+Shorthand: "resto" → Outside_Consumption/Intentional eating out · "courses" →
+Groceries/Small groceries · "verres" → Drinks · "taf" → Work/Uni consumption ·
+"essence"/"péage" → Transportations/Travel transportation · "métro" → Public
+transportation · "pharma" → Health/Meds · "sport" → Activities/Sports.
 
-If he gives no category: **guess from the merchant, save the guess, and say so**
-— never block capture on a question. If genuinely unguessable, save without
-category (the Mac-side review will catch it).
+## Reply (after the interview)
 
-## Ghost expenses
-
-"paid for Max", "maman me rembourse", "avancé pour la coloc" → `Ghost` = true,
-`From` = who paid (usually Me), `To` = who ultimately bears/owes it
-(Parents / Debts / Others). The rest of his phrasing goes to `Comment`
-("paid for Max, he owes me half").
-
-## Write the row
-
-Create the page in the data source with: Merchant, `date:Date:start`
-(YYYY-MM-DD), Amount, Currency, Original amount (if FX), Category, Subcategory,
-Ghost (`__YES__`/`__NO__`), From, To, Comment, Status. Attach the photo to the
-page if the surface supports it; skip silently if not — the data is what
-matters. Several receipts in one message → one row each.
-
-**Dedupe first**: if a Pending row with the same amount and date already
-exists, ask before creating a second one (he may have double-sent the photo —
-but two coffees at the same place the same day are also real).
-
-## Reply
-
-One line, no essay:
-`🧾 Rituals −35.90 € → Health/Cosmetics · pending reconciliation`
-Add a second line only for something he must know (guessed category, FX
-estimate, possible duplicate).
+One line: `🧾 Doctolib −60,00 € → Health/Doctor appointment · ghost → Parents · pending reconciliation`
+plus the WhatsApp link line when applicable. No essays.
