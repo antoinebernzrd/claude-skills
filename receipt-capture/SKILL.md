@@ -31,19 +31,26 @@ included), **currency**.
 ## Step 2 — The interview (always, ONE compact message)
 
 Never guess silently: after extracting, ask ONE short message covering only
-what his caption didn't already answer, then wait:
+what his caption didn't already answer, then wait. **Every question comes with
+its possible answers spelled out** — he must be able to reply with a number or
+one word without remembering the taxonomy:
 
 > 🧾 Doctolib −60,00 € · 15/01
-> 1. Catégorie : **Health / Doctor appointment** — ok ?
-> 2. Actual ou **ghost** (avancé pour quelqu'un) ? Si ghost : pour qui —
->    Parents / Debts / Others ?
-> 3. Un commentaire ?
+> 1. Catégorie — je propose **Health / Doctor appointment**. Ok, ou :
+>    2 = Health/Meds · 3 = Health/Cosmetics · autre → dis-le moi
+> 2. **Actual** ou **ghost** (= avancé pour quelqu'un qui te remboursera) ?
+>    Si ghost, pour qui : **Parents · Debts · Others**
+> 3. Un commentaire ? (optionnel)
 
 Rules of the interview:
 - His caption pre-answers: "resto, ghost parents, dîner avec papa" answers
   everything → skip the questions, file directly, confirm in one line.
-- Propose your best category guess in question 1 — he confirms with "ok"/"oui"
-  or corrects.
+- Question 1 always leads with your best guess plus the 2–3 next-most-likely
+  category/subcategory pairs as numbered options; "ok"/"oui"/a number is a
+  full answer. If he answers with just a category ("Health"), follow up
+  inline with its subcategory options.
+- If the merchant is unguessable, list the 3–4 most plausible categories for
+  that kind of amount instead of an empty question.
 - Account is automatic (Compte_Courant_CM at reconciliation) — only ask if he
   hints he paid with another card or account.
 - One receipt = one interview message max. Several receipts in one message →
