@@ -33,18 +33,21 @@ and */memory/ files only — never transcripts), commit
 1. Find the freshest claude.ai skill cache under
    `~/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/`
    (most recently modified session dir).
-2. Diff each cached skill against its folder in `~/claude-skills`.
-3. Apply updates to skills already tracked in the monorepo, commit, push.
+2. Diff each cached skill against `~/claude-skills` — including skills present
+   in the cache but with no folder in the monorepo yet (brand new).
+3. Apply updates to already-tracked skills, and copy in any brand-new ones,
+   adding a row to the README table (name, one-line description, "Uploaded to
+   claude.ai"). Commit, push.
 4. Remind the user of the reverse direction if monorepo skills changed since
    their last claude.ai upload (they must re-zip + re-upload by hand).
 
 ## Unattended rule (scheduled runs)
 
-The monorepo is public. When running as a scheduled task with nobody watching:
-- **Update** existing tracked files freely.
-- **Never add a brand-new skill or file to the public repo** — report it in
-  the run summary for Antoine to approve instead.
-- If a diff looks personal (names, keys, private context), skip and flag it.
+The monorepo is public — Antoine has confirmed his skills never contain
+sensitive content, so new skills sync automatically like updates do. Still:
+- If a diff looks personal (names, keys, private context) despite that,
+  skip it and flag it in the summary rather than pushing.
+- Never commit secrets (API keys, tokens, passwords) regardless of source.
 
 ## Wrap-up
 

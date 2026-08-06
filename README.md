@@ -14,6 +14,9 @@ One folder per skill; each folder has a `SKILL.md` (plus any supporting files).
 | [restore-mac](restore-mac/SKILL.md) | Set up a fresh Mac from the rebuild recipe — apps, CLI tools, dotfiles, fonts, skills, memory | Claude Code only (local) |
 | [post-drafter](post-drafter/SKILL.md) | Research + draft LinkedIn/X/Reddit posts in Antoine's voice, or optimize a draft he wrote; saves to the Notion Posts DB (replaces the n8n Telegram bot) | Uploaded to claude.ai |
 | [save-liked-post](save-liked-post/SKILL.md) | Paste a post you like, get a fully structured entry in the ⭐ Liked Posts Notion DB (author, platform, style tags, why) — feeds post-drafter | Not yet uploaded |
+| [conviction-take](conviction-take/SKILL.md) | Build an investor-grade take on a company, round, article, or claim, saved to TAKES.DB | Uploaded to claude.ai |
+| [morning](morning/SKILL.md) | Render a styled HTML morning brief of the day (calendar, what needs attention, prep), or schedule it as a recurring task | Uploaded to claude.ai |
+| [receipt-capture](receipt-capture/SKILL.md) | Photo or text of a receipt → structured entry in the 🧾 Receipt Inbox Notion DB, reconciled monthly against the bank export | Uploaded to claude.ai |
 
 [`positions.md`](positions.md) is the Alice & Bob negotiation playbook the contract
 skills were designed around — update it, not the skills, when positions change.
